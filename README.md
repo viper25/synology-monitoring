@@ -26,3 +26,15 @@ The script is best suited to run on the NAS itself and highly recommended. It ca
    * Frequency: **Every minute** *The frequency of times it runs within that minute is defined in the script itself*
    * Last run time: **23:59**
 9. Import the Synology_dashboard.json file to your Grafana instance, Create > Import > Import .json file.
+
+###### Setup InfluxDB
+
+Setup InfluxDB per [this script](https://gist.github.com/viper25/f89cc61eb3feabe437ab1f2e0149cb44)
+Configure the DB as below:
+
+```sql
+CREATE DATABASE "telegraf";
+CREATE USER "srvc_synology" WITH PASSWORD 'xxxxxx';
+GRANT WRITE ON telegraf TO srvc_synology;
+SHOW USERS;
+```
